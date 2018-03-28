@@ -26,12 +26,37 @@
         2.欲需使用"/"做整体映射
      -->
     <mvc:default-servlet-handler/>
-    <!-- 3：配置jsp 显示ViewResolver -->
+    <!-- 3：配置多个ViewResolver视图解析 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
+        <property name="order" value="1"/>
     </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/html/"/>
+        <property name="suffix" value=".html"/>
+        <property name="order" value="0"/>
+    </bean>
+    <!--<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">-->
+        <!--<property name="viewResolvers">-->
+            <!--<list>-->
+                <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+                    <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+                    <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
+                    <!--<property name="suffix" value=".jsp"/>-->
+                    <!--<property name="order" value="1" />-->
+                <!--</bean>-->
+                <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+                    <!--<property name="prefix" value="/WEB-INF/html/"/>-->
+                    <!--<property name="suffix" value=".html"/>-->
+                    <!--<property name="order" value="2" />-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
     <!-- 4：扫描web相关的bean -->
-    <context:component-scan base-package="org.knight.*" />
+    <context:component-scan base-package="org.knight.*"/>
 </beans>
