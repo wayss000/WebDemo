@@ -59,4 +59,7 @@
 
     <!-- 4：扫描web相关的bean -->
     <context:component-scan base-package="org.knight.*"/>
+
+    <!-- 5.静态文件不拦截 -->
+    <!--<mvc:resources mapping="/static/*" location="/static/*"/>-->
 </beans>
