@@ -27,23 +27,43 @@
      -->
     <mvc:default-servlet-handler/>
     <!-- 3：配置多个ViewResolver视图解析 -->
-    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <property name="viewResolvers">
-            <list>
-                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-                    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-                    <property name="prefix" value="/WEB-INF/jsp/"/>
-                    <property name="suffix" value=".jsp"/>
-                    <property name="order" value="1" />
-                </bean>
-                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-                    <property name="viewClass" value="org.knight.common.HtmlResourceView"/>
-                    <property name="prefix" value="/WEB-INF/html/"/>
-                    <property name="suffix" value=".html"/>
-                    <property name="order" value="0" />
-                </bean>
-            </list>
+    <!--<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">-->
+        <!--<property name="viewResolvers">-->
+            <!--<list>-->
+                <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+                    <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>-->
+                    <!--<property name="prefix" value="/WEB-INF/jsp/"/>-->
+                    <!--<property name="suffix" value=".jsp"/>-->
+                    <!--<property name="order" value="1" />-->
+                <!--</bean>-->
+                <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+                    <!--<property name="viewClass" value="org.knight.common.HtmlResourceView"/>-->
+                    <!--<property name="prefix" value="/WEB-INF/html/"/>-->
+                    <!--<property name="suffix" value=".html"/>-->
+                    <!--<property name="order" value="0" />-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <!-- 这里的路径回合下面layoutUrl和prefix中的路径组合 -->
+        <property name="resourceLoaderPath" value="/WEB-INF/velocity/"/>
+        <property name="velocityProperties">
+            <props>
+                <prop key="input.encoding">UTF-8</prop>
+                <prop key="output.encoding">UTF-8</prop>
+                <prop key="contentType">text/html;charset=UTF-8</prop>
+            </props>
         </property>
+    </bean>
+    <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="cache" value="true"/>
+        <property name="order" value="0"/>
+        <property name="suffix" value=".vm"/>
+        <!-- 这里的路径会加上resourceLoaderPath的路径 -->
+        <property name="layoutUrl" value="/layout/default.vm"/>
+        <property name="prefix" value="/"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
     </bean>
 
 

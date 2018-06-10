@@ -1,0 +1,14 @@
+<html lang="zh-CN">
+
+<body>
+
+    ##默认模板必须有下面这个变量，否则，就不能显示自己定义的其他页面
+    $screen_content
+
+</body>
+
+<script type="text/javascript">
+
+</script>
+</html>
+

@@ -1,6 +1,7 @@
 package org.knight.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,15 +11,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexConsole {
 
-    @RequestMapping(value = "/jsp")
-    public String jsp() {
-        System.out.println("jsp");
-        return "jsp";
+//    @RequestMapping(value = "/jsp")
+//    public String jsp() {
+//        System.out.println("jsp");
+//        return "jsp";
+//    }
+//
+//    @RequestMapping(value = "/html")
+//    public String html() {
+//        System.out.println("html");
+//        return "html";
+//    }
+
+    @RequestMapping(value = "velocity")
+    public String velocity(Model model){
+
+        String name = "wayss";
+        model.addAttribute("name", name);
+
+        return "hello";
     }
 
-    @RequestMapping(value = "/html")
-    public String html() {
-        System.out.println("html");
-        return "html";
-    }
 }
