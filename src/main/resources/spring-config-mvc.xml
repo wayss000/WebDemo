@@ -43,26 +43,31 @@
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="viewResolvers">
             <list>
+                <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+                    <property name="cache" value="true"/>
+                    <!-- velocity的order要小于jsp的,velocity和html的order优先级大小无所谓，都能正常解析并显示 -->
+                    <property name="order" value="2"/>
+                    <property name="suffix" value=".vm"/>
+                    <!-- 这里的路径会加上resourceLoaderPath的路径 -->
+                    <property name="layoutUrl" value="/WEB-INF/velocity/layout/default.vm"/>
+                    <property name="prefix" value="/WEB-INF/velocity/"/>
+                    <property name="contentType" value="text/html;charset=UTF-8"/>
+                </bean>
+
                 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
                     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
                     <property name="prefix" value="/WEB-INF/jsp/"/>
                     <property name="suffix" value=".jsp"/>
-                    <property name="order" value="1" />
+                    <!-- 注意：JSP的优先级要最低，即order要大，否则，HTML和velocity的页面会被解析到*.jsp -->
+                    <property name="order" value="3" />
                 </bean>
+
                 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
                     <property name="viewClass" value="org.knight.common.HtmlResourceView"/>
                     <property name="prefix" value="/WEB-INF/html/"/>
                     <property name="suffix" value=".html"/>
-                    <property name="order" value="2" />
-                </bean>
-                <bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
-                    <property name="cache" value="true"/>
-                    <property name="order" value="0"/>
-                    <property name="suffix" value=".vm"/>
-                    <!-- 这里的路径会加上resourceLoaderPath的路径 -->
-                    <property name="layoutUrl" value="/layout/default.vm"/>
-                    <property name="prefix" value="/"/>
-                    <property name="contentType" value="text/html;charset=UTF-8"/>
+                    <!-- 注意：自定义的HTML一定要比JSF的优先级高，即order要小，否则，HTML的页面会被解析成jsp -->
+                    <property name="order" value="1" />
                 </bean>
             </list>
         </property>
