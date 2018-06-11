@@ -9,7 +9,7 @@
     <url>http://maven.apache.org</url>
 
     <modules>
-        <module>demo-web</module>
+        <module>web-demo-web</module>
     </modules>
 
     <!-- 引入依赖的第三方库 -->
