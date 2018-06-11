@@ -2,14 +2,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.knight</groupId>
-    <artifactId>Web-Demo</artifactId>
+    <artifactId>WebDemo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Web-Demo</name>
+    <name>WebDemo</name>
     <url>http://maven.apache.org</url>
 
+    <!-- maven编译的顺序就是按照下面module的顺序编译的，故，改顺序也是有讲究的 -->
     <modules>
-        <module>web-demo-web</module>
+        <module>webdemo-common</module>
+        <module>webdemo-dao</module>
+        <module>webdemo-service</module>
+        <module>webdemo-web</module>
     </modules>
 
     <!-- 引入依赖的第三方库 -->
