@@ -2,15 +2,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.knight</groupId>
-    <artifactId>Web-Demo</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>demo-web</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>Web-Demo</name>
+    <name>Web-Demo-Web</name>
     <url>http://maven.apache.org</url>
 
-    <modules>
-        <module>demo-web</module>
-    </modules>
+    <parent>
+        <groupId>org.knight</groupId>
+        <artifactId>Web-Demo</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
 
     <properties>
         <spring.version>3.1.4.RELEASE</spring.version>
@@ -51,6 +54,6 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>WebDemo</finalName>
+        <finalName>${artifactId}-${version}</finalName>
     </build>
 </project>
