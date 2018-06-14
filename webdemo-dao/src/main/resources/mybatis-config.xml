@@ -28,6 +28,7 @@
     </environments>
 
     <mappers>
+        <!-- mapper的路径为目录的路径，根为model的resources目录 -->
         <mapper resource="mapper/PeopleMapper.xml" />
     </mappers>
 

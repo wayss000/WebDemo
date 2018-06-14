@@ -7,6 +7,7 @@
     <version>1.0-SNAPSHOT</version>
     <name>WebDemo-dao</name>
 
+    <!-- 通用依赖放到父pom中，这里继承直接拥有父类的依赖 -->
     <parent>
         <groupId>org.knight</groupId>
         <artifactId>WebDemo</artifactId>
