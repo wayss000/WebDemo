@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Index.</h2>
+<h2>默认首页.</h2>
 </body>
 </html>
