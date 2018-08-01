@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>使用HTTP请求</title>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        function testGet(){
+            var url = "/testget?parm1=123&parm2=789";
+            $.get(url,function(data,status){
+                alert("get请求成功");
+                console.log("数据: " + data + "\n状态: " + status);
+            });
+        }
+        
+        function testPost() {
+            $.post("testpost",{
+                name:"张三",
+                age:18
+            },
+            function(data,status){
+                alert("post请求成功");
+                console.log("数据: \n" + data + "\n状态: " + status);
+            });
+        }
+        
+        function testPut() {
+            $.ajax({
+                url: 'testput',
+                type: 'PUT',
+                success: function( response ) {
+                    console.log("put请求成功");
+                }
+            });
+        }
+        
+        function testDelete() {
+            $.ajax({
+                url: 'testdelete',
+                type: 'DELETE',
+                success: function(result) {
+                    // Do something with the result
+                    console.log("delete请求成功")
+                }
+            });
+
+        }
+    </script>
+</head>
+<body>
+
+<p>单击按钮触发函数。</p>
+<button onclick="testGet()">get</button>
+<button onclick="testPost()">post</button>
+<button onclick="testPut()">put</button>
+<button onclick="testDelete()">delete</button>
+
+</body>
+</html>

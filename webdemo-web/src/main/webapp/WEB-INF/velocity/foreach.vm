@@ -1,0 +1,7 @@
+foreach demo.
+<br>
+
+#foreach($people in $peoples)
+    Hello,${people.name},年龄：${people.age}!
+    <br>
+#end
