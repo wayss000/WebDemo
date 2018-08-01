@@ -4,6 +4,7 @@ import org.knight.domain.People;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +60,15 @@ public class IndexConsole {
 
         model.addAttribute("peoples", peoples);
         return "foreach";
+    }
+
+    @RequestMapping("returnjson")
+    @ResponseBody
+    public People returnJson(){
+        People people = new People();
+        people.setAge(18);
+        people.setName("张三");
+        return people;
     }
 
 }
