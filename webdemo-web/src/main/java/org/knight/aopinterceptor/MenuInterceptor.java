@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
+ * 菜单权限<code>MenuPower</code>的拦截器
  * @author Wayss
  * @date 2018/8/2
  */
