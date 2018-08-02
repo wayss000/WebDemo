@@ -31,7 +31,7 @@ public class MenuController {
 
     @MenuPower
     @RequestMapping("page2")
-    public String page2(){
+    public String page2(HttpServletRequest httpServletRequest){
         return "menu/page2";
     }
 

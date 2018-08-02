@@ -17,31 +17,30 @@ import javax.servlet.http.HttpSession;
 public class MenuInterceptor {
 
     @Around("@annotation(MenuPower)")
-    public String beforeCheckAuthoroid(ProceedingJoinPoint pjp){
+    public Object beforeCheckAuthoroid(ProceedingJoinPoint pjp){
         //获取方法参数
         Object[] objects = pjp.getArgs();
         //遍历参数
         for (Object object : objects){
-            //两种方式判断类型相等
+            //两种方式都可以判断类型相等
 //            if (HttpServletRequest.class.isInstance(object)){
-//
-//            }
             if (object instanceof HttpServletRequest){
 
                 //获取登录的用户名信息
                 HttpSession httpSession = ((HttpServletRequest)object).getSession();
                 String userName = (String)httpSession.getAttribute("userName");
-                //有权限
+                //有权限,执行原方法
                 if (MenuAuthorityCheck.checkAuthority(userName)){
                     try {
                         //执行原方法
-                        pjp.proceed();
+                        return pjp.proceed();
                     } catch (Throwable throwable) {
                         throwable.printStackTrace();
                     }
                 }
             }
         }
+        //返回无权限页面
         return "nopower";
     }
 }
