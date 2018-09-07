@@ -19,6 +19,7 @@ public class LoginController {
 
     /**
      * 登陆请求
+     * (http://localhost/login?userName=zhangsan&passWord=pd:zhangsan)
      * @return 登陆成功返回true,失败返回false;
      */
     @RequestMapping("login")
@@ -47,6 +48,7 @@ public class LoginController {
 
     /**
      * 注册请求
+     * (http://localhost/register?userName=zhangsan&passWord=pd:zhangsan)
      * @return 注册成功返回true,失败返回false;
      */
     @RequestMapping("register")
