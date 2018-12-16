@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+
+    <!-- SqlSessionFactory引入datasource配置源信息 -->
+    <bean id="webDemoSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="webDemoDatasource"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+    </bean>
+
+    <!-- 配置Mapper自动扫描。配置后就不用再在每个Mapper类上用@Repository注解了 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="org.knight.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="webDemoSqlSessionFactory"/>
+    </bean>
+
+</beans>

@@ -2,6 +2,10 @@ package org.knight.model;
 
 import lombok.Data;
 
+
+/**
+ * 用户权限
+ */
 @Data
 public class UserAuth {
     /**

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       ">
+
+    <!-- 配置数据源信息 -->
+    <bean id="webDemoDatasource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+
+        <!-- TODO 数据库信息提到.properties配置文件中 -->
+        <property name="url" value="jdbc:mysql://localhost:3306/web_demo"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+
+        <property name="initialSize" value="0"/>
+        <property name="maxActive" value="5"/>
+        <property name="maxIdle" value="2"/>
+        <property name="minIdle" value="1"/>
+        <property name="maxWait" value="15000"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="minEvictableIdleTimeMillis" value="180000"/>
+    </bean>
+</beans>

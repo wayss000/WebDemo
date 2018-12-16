@@ -90,4 +90,7 @@
 
     <!-- 7.开启动态代理 -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!-- 8.引入其他配置文件 -->
+    <import resource="classpath*:META-INF/spring/spring-*.xml"/>
 </beans>

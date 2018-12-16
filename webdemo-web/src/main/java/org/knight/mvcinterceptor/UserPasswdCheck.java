@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 用户名密码校验类。
+ * 用户名密码校验类：用户名密码均在内存中保存。
  * @author Wayss.
  * @date 2018/7/21.
  */

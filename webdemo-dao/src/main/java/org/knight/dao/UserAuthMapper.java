@@ -1,18 +1,43 @@
 package org.knight.dao;
 
 
+import org.apache.ibatis.annotations.Param;
 import org.knight.model.UserAuth;
 
 public interface UserAuthMapper {
-    int deleteByPrimaryKey(Integer id);
 
+    /**
+     * 注册用户信息
+     *
+     * @param record
+     * @return
+     */
     int insert(UserAuth record);
 
-    int insertSelective(UserAuth record);
+    /**
+     * 删除用户授权信息
+     *
+     * @param id
+     * @return
+     */
+    int deleteByPrimaryKey(Integer id);
 
-    UserAuth selectByPrimaryKey(Integer id);
+    /**
+     * 修改密码
+     *
+     * @param userName
+     * @param passWord
+     * @return
+     */
+    int updatePassWord(@Param("userName") String userName, @Param("passWord") String passWord);
 
-    int updateByPrimaryKeySelective(UserAuth record);
+    /**
+     * 通过用户名密码查询
+     *
+     * @param userName
+     * @param passWord
+     * @return
+     */
+    UserAuth checkAuth(@Param("userName") String userName, @Param("passWord") String passWord);
 
-    int updateByPrimaryKey(UserAuth record);
 }
