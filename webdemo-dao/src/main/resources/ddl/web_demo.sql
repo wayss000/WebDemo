@@ -18,21 +18,22 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Create Dababase
 -- ----------------------------
-CREATE DATABASE WebDemo;
+CREATE DATABASE web_demo;
 
-USE WebDemo;
+USE web_demo;
 
 -- ----------------------------
 -- Table structure for people
 -- ----------------------------
 DROP TABLE IF EXISTS `people`;
 CREATE TABLE `people` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `sex` varchar(255) DEFAULT NULL,
-  `height` float DEFAULT NULL,
-  `weight` float DEFAULT NULL,
-  `interests` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `name` varchar(255) DEFAULT NULL COMMENT '姓名',
+  `age` int(11) DEFAULT NULL COMMENT '年龄',
+  `sex` varchar(255) DEFAULT NULL COMMENT '性别',
+  `height` float DEFAULT NULL COMMENT '身高',
+  `weight` float DEFAULT NULL COMMENT '体重',
+  `interests` varchar(255) DEFAULT NULL COMMENT '兴趣爱好',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='人员表';
 
@@ -41,8 +42,8 @@ CREATE TABLE `people` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user_auth`;
 CREATE TABLE `user_auth` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(255) DEFAULT NULL,
-  `pass_word` varchar(255) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `user_name` varchar(255) DEFAULT NULL COMMENT '用户名',
+  `pass_word` varchar(255) DEFAULT NULL COMMENT '密码',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户权限表';

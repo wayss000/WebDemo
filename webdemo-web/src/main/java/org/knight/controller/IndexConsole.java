@@ -1,6 +1,6 @@
 package org.knight.controller;
 
-import org.knight.domain.People;
+import org.knight.model.People;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

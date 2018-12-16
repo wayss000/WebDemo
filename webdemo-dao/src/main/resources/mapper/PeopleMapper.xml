@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTO Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.knight.dto.People">
-    <select id="selectAll" resultType="People">
+<mapper namespace="org.knight.model.People">
+    <select id="selectAll" resultType="org.knight.model.People">
         SELECT * FROM people
     </select>
 
