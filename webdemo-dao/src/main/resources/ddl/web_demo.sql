@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : local
 Source Server Version : 50634
 Source Host           : 127.0.0.1:3306
-Source Database       : web-demo
+Source Database       : web_demo
 
 Target Server Type    : MYSQL
 Target Server Version : 50634
@@ -13,6 +13,17 @@ File Encoding         : 65001
 Date: 2018-12-14 00:50:53
 */
 
+/*
+SET FOREIGN_KEY_CHECKS=0;取消外键约束
+
+Mysql中如果表和表之间建立的外键约束，则无法删除表及修改表结构。
+
+解决方法是在Mysql中取消外键约束:  SET FOREIGN_KEY_CHECKS=0;
+
+然后将原来表的数据导出到sql语句，重新创建此表后，再把数据使用sql导入，
+
+然后再设置外键约束: SET FOREIGN_KEY_CHECKS=1;
+ */
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
