@@ -16,6 +16,13 @@ Date: 2018-12-14 00:50:53
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
+-- Create Dababase
+-- ----------------------------
+CREATE DATABASE WebDemo;
+
+USE WebDemo;
+
+-- ----------------------------
 -- Table structure for people
 -- ----------------------------
 DROP TABLE IF EXISTS `people`;
