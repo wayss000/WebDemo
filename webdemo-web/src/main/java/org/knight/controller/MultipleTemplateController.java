@@ -10,11 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 多模板语言测试Controller类
+ *
  * @author Wayss
  * @date 2018/3/28
  */
 @Controller
-public class IndexConsole {
+public class MultipleTemplateController {
 
     @RequestMapping(value = "/jsp")
     public String jsp() {
@@ -28,8 +30,8 @@ public class IndexConsole {
         return "html";
     }
 
-    @RequestMapping(value = "velocity")
-    public String velocity(Model model){
+    @RequestMapping(value = "/velocity")
+    public String velocity(Model model) {
         System.out.println("velocity");
 
         String name = "wayss";
@@ -38,8 +40,8 @@ public class IndexConsole {
         return "hello";
     }
 
-    @RequestMapping(value = "velocity/list")
-    public String velocityList(Model model){
+    @RequestMapping(value = "/velocity/list")
+    public String velocityList(Model model) {
 
         List<People> peoples = new ArrayList<People>();
 
@@ -64,7 +66,7 @@ public class IndexConsole {
 
     @RequestMapping("returnjson")
     @ResponseBody
-    public People returnJson(){
+    public People returnJson() {
         People people = new People();
         people.setAge(18);
         people.setName("张三");
