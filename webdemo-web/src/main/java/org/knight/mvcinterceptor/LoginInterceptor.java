@@ -23,7 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
         //注册请求不拦截
-        if (url.indexOf("register") > 0){
+        if (url.indexOf("static") > 0){
             return true;
         }
 

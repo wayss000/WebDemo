@@ -39,7 +39,7 @@ public class UserAuthServiceImpl implements UserAuthService {
         Boolean isAuth = false;
 
         UserAuth userAuth = userAuthMapper.checkAuth(userName, passWord);
-        if (userAuth.getId() != null) {
+        if (userAuth != null) {
             isAuth = true;
         }
 

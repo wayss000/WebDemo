@@ -72,6 +72,14 @@
     <!-- 4：扫描web相关的bean -->
     <context:component-scan base-package="org.knight.*"/>
 
+    <!-- 6: 配置拦截器,若多个拦截器则按顺序执行-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**/"/>
+            <bean class="org.knight.mvcinterceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <!-- 2：servlet-mapping 映射路径："/" -->
     <!-- 静态资源默认servlet配置
         1.加入对静态资源的处理
@@ -81,14 +89,6 @@
 
     <!-- 5.静态文件不拦截 -->
     <mvc:resources mapping="/static/**" location="/static/"/>
-
-    <!-- 6: 配置拦截器,若多个拦截器则按顺序执行-->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**/"/>
-            <bean class="org.knight.mvcinterceptor.LoginInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
 
     <!-- 7.开启动态代理 -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
