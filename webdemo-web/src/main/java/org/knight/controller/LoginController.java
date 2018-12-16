@@ -1,7 +1,6 @@
 package org.knight.controller;
 
 import org.knight.domain.Message;
-import org.knight.mvcinterceptor.UserPasswdCheck;
 import org.knight.service.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,10 +23,10 @@ public class LoginController {
 
     /**
      * 登陆请求
-     * (http://localhost/login?userName=zhangsan&passWord=pd:zhangsan)
+     * (http://localhost/login/login?userName=zhangsan&passWord=pd:zhangsan)
      * @return 登陆成功返回true,失败返回false;
      */
-    @RequestMapping("login")
+    @RequestMapping("/login/login")
     @ResponseBody
     public Message login(HttpServletRequest httpServletRequest){
 
@@ -55,10 +54,10 @@ public class LoginController {
 
     /**
      * 注册请求
-     * (http://localhost/register?userName=zhangsan&passWord=pd:zhangsan)
+     * (http://localhost/login/register?userName=zhangsan&passWord=pd:zhangsan)
      * @return 注册成功返回true,失败返回false;
      */
-    @RequestMapping("register")
+    @RequestMapping("/login/register")
     @ResponseBody
     public Message register(HttpServletRequest httpServletRequest){
 
@@ -93,9 +92,21 @@ public class LoginController {
         return message;
     }
 
-    @RequestMapping("pleaselogin")
+    @RequestMapping("/login/pleaselogin")
     public String pleaseLogin(){
         return "loginpage";
+    }
+
+    @RequestMapping("/login/login_page")
+    public String login() {
+        //跳转到登录页面
+        return "login/login";
+    }
+
+    @RequestMapping("/login/register_page")
+    public String register(){
+        //跳转到注册页面
+        return "login/register";
     }
 
 }

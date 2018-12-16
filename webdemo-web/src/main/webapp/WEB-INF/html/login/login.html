@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>用户登录页面</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="/static/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header class="page-header text-center">
+    <h1>用户登录页面</h1>
+</header>
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input id="userName" type="text" class="form-control" name="" placeholder="请输入用户名">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input id="passWord" type="password" class="form-control" name="" placeholder="请输入密码">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-10">
+                <button onclick="register()" class="btn btn-success">注册</button>
+                <button onclick="login()" class="btn btn-primary">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function register(){
+        window.location.href = "/login/register_page";
+    }
+    function login() {
+        debugger;
+        var userName = $("#userName").val();
+        if (!userName) {
+            alert("用户名不能为空");
+            return;
+        }
+        var passWord = $("#passWord").val();
+        if (!passWord) {
+            alert("密码不能为空");
+            return;
+        }
+        $.post("/login/login", {
+                userName: userName,
+                passWord: passWord
+            },
+            function (data) {
+                if (data.isSuccess){
+                    alert("登录成功,马上去首页看看");
+                }
+                window.location.href = "/index";
+            });
+    }
+</script>
