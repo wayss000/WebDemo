@@ -21,10 +21,18 @@
 
     <display-name>Archetype Created Web Application</display-name>
 
+    <!-- TODO 有个bug，目前在未登录状态下所有错误页是不能跳过去的 -->
     <error-page>
         <error-code>401</error-code>
-        <!--<location>/login/login_page</location>-->
         <location>/static/html/login/login.html</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/static/html/login/login.html</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/static/html/error/4xx.html</location>
     </error-page>
     <error-page>
         <error-code>500</error-code>
