@@ -12,7 +12,7 @@ public interface UserAuthMapper {
      * @param record
      * @return
      */
-    int insert(UserAuth record);
+    Integer insert(UserAuth record);
 
     /**
      * 删除用户授权信息
@@ -20,7 +20,7 @@ public interface UserAuthMapper {
      * @param id
      * @return
      */
-    int deleteByPrimaryKey(Integer id);
+    Integer deleteByPrimaryKey(Integer id);
 
     /**
      * 修改密码
@@ -29,7 +29,7 @@ public interface UserAuthMapper {
      * @param passWord
      * @return
      */
-    int updatePassWord(@Param("userName") String userName, @Param("passWord") String passWord);
+    Integer updatePassWord(@Param("userName") String userName, @Param("passWord") String passWord);
 
     /**
      * 通过用户名密码查询
@@ -39,5 +39,13 @@ public interface UserAuthMapper {
      * @return
      */
     UserAuth checkAuth(@Param("userName") String userName, @Param("passWord") String passWord);
+
+    /**
+     * 查询是否存在当前用户
+     *
+     * @param userName
+     * @return
+     */
+    Integer selectIdByUserName(@Param("userName") String userName);
 
 }

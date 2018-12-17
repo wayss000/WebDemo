@@ -75,8 +75,11 @@
             function (data) {
                 if (data.isSuccess){
                     alert("注册成功,马上去首页看看");
+                    window.location.href = "/index";
+                }else {
+                    alert(data.message);
+                    return
                 }
-                window.location.href = "/index";
             });
     }
 

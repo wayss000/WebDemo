@@ -1,5 +1,7 @@
 package org.knight.service;
 
+import org.knight.domain.Message;
+
 /**
  * @author Wayss.
  * @date 2018/12/16.
@@ -7,7 +9,7 @@ package org.knight.service;
 public interface UserAuthService {
 
     /**
-     * 注册新用户
+     * 插入新用户数据
      *
      * @param userName
      * @param passWord
@@ -38,4 +40,13 @@ public interface UserAuthService {
      * @return
      */
     Boolean checkAuth(String userName, String passWord);
+
+    /**
+     * 注册新用户
+     *
+     * @param userName
+     * @param passWord
+     * @return
+     */
+    Message register(String userName, String passWord);
 }

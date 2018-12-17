@@ -1,5 +1,6 @@
 package org.knight.controller;
 
+import org.apache.commons.lang.StringUtils;
 import org.knight.domain.Message;
 import org.knight.service.UserAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +36,10 @@ public class LoginController {
         String passWord = httpServletRequest.getParameter("passWord");
 
         //权限校验
-        boolean havePermission = userAuthService.checkAuth(userName, passWord);
+        boolean isAuth = userAuthService.checkAuth(userName, passWord);
 
         //权限校验成功后登陆信息保存到session中，之后就不用每次都登陆了
-        Message message = checkAuth(havePermission);
+        Message message = checkAuth(isAuth);
         //登陆成功则更新session
         if (message.getIsSuccess()){
             /*
@@ -61,11 +62,20 @@ public class LoginController {
     @ResponseBody
     public Message register(HttpServletRequest httpServletRequest){
 
+        Message message;
+
         String userName = httpServletRequest.getParameter("userName");
         String passWord = httpServletRequest.getParameter("passWord");
 
-        boolean isRegisterOK = userAuthService.insert(userName, passWord);
-        Message message = checkAuth(isRegisterOK);
+        if (StringUtils.isBlank(userName) || StringUtils.isBlank(passWord)){
+            message = new Message();
+            message.setIsSuccess(false);
+            message.setMessage("用户名和密码均不能为空");
+            return message;
+        }
+
+        message = userAuthService.register(userName, passWord);
+
         //登陆成功则更新session
         if (message.getIsSuccess()){
             /*
@@ -87,7 +97,7 @@ public class LoginController {
             message.setMessage("登陆成功");
         }else {
             message.setIsSuccess(false);
-            message.setMessage("登陆失败");
+            message.setMessage("登陆失败，请检查用户名密码是否正确");
         }
         return message;
     }

@@ -41,4 +41,11 @@
         and pass_word = #{passWord,jdbcType=VARCHAR}
     </select>
 
+    <select id="selectIdByUserName" resultType="java.lang.Integer">
+        select
+        id
+        from user_auth
+        where user_name = #{userName,jdbcType=VARCHAR}
+    </select>
+
 </mapper>
