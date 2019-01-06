@@ -36,9 +36,9 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         //下面的代码都是登录权限校验失败后做的
         //跳转到指定页面（适合页面随web时用）
-//        httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/pleaselogin");
+        httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login/login_page");
         //返回http状态码（适合前后端分离用）
-        httpServletResponse.setStatus(401);
+//        httpServletResponse.setStatus(401);
         //返回false后，下面的postHandle,afterCompletion就都不执行了
         return false;
     }
