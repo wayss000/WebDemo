@@ -14,6 +14,7 @@
         <module>webdemo-dao</module>
         <module>webdemo-service</module>
         <module>webdemo-web</module>
+        <module>webdemo-cache</module>
     </modules>
 
     <!-- 引入依赖的第三方库 -->
