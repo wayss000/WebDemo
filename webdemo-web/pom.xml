@@ -17,16 +17,26 @@
         <!--引入Web-Demo的依赖-->
         <dependency>
             <groupId>org.knight</groupId>
+            <artifactId>webdemo-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.knight</groupId>
             <artifactId>webdemo-service</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.knight</groupId>
+            <artifactId>webdemo-cache</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <!-- 引入依赖的第三方库 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -54,11 +64,7 @@
             <artifactId>velocity-tools</artifactId>
             <version>2.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.knight</groupId>
-            <artifactId>webdemo-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
         <!--springMvc使用@ResponseBody，如果返回的是json结果，需要添加jackson的jar包的依赖-->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
@@ -85,6 +91,13 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>3.1.4.RELEASE</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>2.5</version>
+            <scope>test</scope>
         </dependency>
 
 
