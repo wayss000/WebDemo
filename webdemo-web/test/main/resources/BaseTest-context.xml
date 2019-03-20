@@ -24,4 +24,9 @@
     <aop:aspectj-autoproxy/>
     <mvc:annotation-driven/>
     <import resource="classpath*:META-INF/spring/spring-*.xml"/>
+
+    <bean id="redisClient" class="redis.clients.jedis.Jedis">
+        <constructor-arg value="${redis.service.ip}"/>
+    </bean>
+
 </beans>

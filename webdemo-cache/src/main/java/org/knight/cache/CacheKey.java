@@ -9,13 +9,28 @@ package org.knight.cache;
 public enum CacheKey {
 
     /**
-     * 第一个Key值
+     * 测试String类型的Key
      */
-    TEST_ONE,
+    TEST_STRING,
     /**
-     * 第二个Key值
+     * 测试List类型的Key
      */
-    TEST_TWO,
+    TEST_LIST,
+
+    /**
+     * 测试Set类型的Key
+     */
+    TEST_SET,
+
+    /**
+     * 测试Hase类型的Key
+     */
+    TEST_HASH,
+
+    /**
+     * 测试ZSet类型的Key
+     */
+    TEST_ZSET,
     ;
 
     /**
@@ -32,7 +47,8 @@ public enum CacheKey {
     }
 
     /**
-     * 每个Key在使用时加入下划线后缀，根据业务不同选择不同的使用
+     * 每个Key在使用时加入下划线后缀，根据业务不同选择不同的使用<br>
+     * 举例：CacheKey.TEST_STRING.getKey()的值为"WEB-DEMO_TEST_STRING_"
      *
      * @return
      */
