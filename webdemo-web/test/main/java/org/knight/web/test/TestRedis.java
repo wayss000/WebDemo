@@ -11,7 +11,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Redis测试类，主要为对Redis的5种基本类型读写操作。
+ * Redis测试类，主要为对Redis的5种基本类型读写操作。<br>
+ * 注意：运行此测试用例前，需要先安装好Redis.
  *
  * @author Wayss.
  * @date 2019/1/22.
