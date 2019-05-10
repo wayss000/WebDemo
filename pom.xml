@@ -15,6 +15,7 @@
         <module>webdemo-service</module>
         <module>webdemo-web</module>
         <module>webdemo-cache</module>
+        <module>webdemo-search</module>
     </modules>
 
     <!-- 引入依赖的第三方库 -->
