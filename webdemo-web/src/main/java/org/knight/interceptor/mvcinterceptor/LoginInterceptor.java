@@ -1,4 +1,4 @@
-package org.knight.mvcinterceptor;
+package org.knight.interceptor.mvcinterceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

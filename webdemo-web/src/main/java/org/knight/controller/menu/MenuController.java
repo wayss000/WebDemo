@@ -1,7 +1,7 @@
-package org.knight.controller;
+package org.knight.controller.menu;
 
-import org.knight.aopinterceptor.MenuAuthorityCheck;
-import org.knight.aopinterceptor.MenuPower;
+import org.knight.interceptor.menuinterceptor.MenuAuthorityCheck;
+import org.knight.interceptor.menuinterceptor.MenuPower;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

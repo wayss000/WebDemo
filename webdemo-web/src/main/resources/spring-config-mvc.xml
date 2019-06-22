@@ -76,7 +76,7 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**/"/>
-            <bean class="org.knight.mvcinterceptor.LoginInterceptor"/>
+            <bean class="org.knight.interceptor.mvcinterceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 

@@ -1,4 +1,4 @@
-package org.knight.controller;
+package org.knight.controller.login;
 
 import org.apache.commons.lang.StringUtils;
 import org.knight.domain.Message;

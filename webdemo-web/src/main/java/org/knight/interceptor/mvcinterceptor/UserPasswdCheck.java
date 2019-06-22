@@ -1,4 +1,4 @@
-package org.knight.mvcinterceptor;
+package org.knight.interceptor.mvcinterceptor;
 
 import java.util.HashMap;
 import java.util.Map;

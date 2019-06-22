@@ -1,4 +1,4 @@
-package org.knight.aopinterceptor;
+package org.knight.interceptor.menuinterceptor;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

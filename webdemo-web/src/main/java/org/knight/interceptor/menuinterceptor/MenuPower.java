@@ -1,4 +1,4 @@
-package org.knight.aopinterceptor;
+package org.knight.interceptor.menuinterceptor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
